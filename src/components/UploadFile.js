@@ -1,16 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { Flex, Box, Button, Heading } from 'rebass';
 import { Label, Input } from '@rebass/forms';
+import { uploadFile } from '../fetchService';
 
 const UploadFile = () => {
   const [file, setFile] = useState();
 
   const onChangeHandler = (event) => {
     setFile(() => event.target.files[0]);
-    console.log(event.target.files[0]);
   };
 
   const submitFile = () => {
+    uploadFile(file, '001', 'M001');
     console.log(file);
   };
 
