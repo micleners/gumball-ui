@@ -4,7 +4,7 @@ import styles from './Kata.css';
 const KataRetro = () => (
   <article id="16dc6dfc-f43b-41a8-aaec-81f19c0face5" class="page sans">
     <header>
-      <h1 class="page-title">Kata Result</h1>
+      <h1 class="page-title">Kata Retro</h1>
     </header>
     <div class="page-body">
       <h2 id="5e4eab54-3302-4519-bd78-f24d18cd0d77" class="">

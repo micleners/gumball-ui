@@ -6,7 +6,7 @@ import ListFiles from './components/ListFiles';
 import UploadFile from './components/UploadFile';
 import TechIdInput from './components/TechIdInput';
 import MachIdInput from './components/MachIdInput';
-import DigestingKata from './components/DigestingKata';
+import Reflections from './components/Reflections';
 import theme from './theme';
 import { Box, Flex, Heading } from 'rebass';
 
@@ -33,12 +33,14 @@ const App = () => {
           }
         `}
       />
-      <Heading bg="blue" color="white" fontSize={'6'} py={1}>
+      <Heading bg="blue" color="white" fontSize={['2', '6']} py={1}>
         <Flex alignItems="center">
           <GumballMachine height="100" width="100" />
           GSI YummyGummy2k™ Data Portal
         </Flex>
       </Heading>
+
+      <Reflections />
 
       <TechIdInput setTechId={setTechId} techId={techId} setFiles={setFiles} />
 
@@ -59,7 +61,6 @@ const App = () => {
         techId={techId}
         setFiles={setFiles}
       />
-      <DigestingKata/>
     </ThemeProvider>
   );
 };
