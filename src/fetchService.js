@@ -14,18 +14,17 @@ export const getFiles = (techId, setter) => {
     });
 };
 
-export const uploadFile = (file, techId, machineId) => {
+export const uploadFile = (file, techId, machId, setFile, setFiles) => {
   const data = new FormData();
   data.append('file', file);
-  data.append('technician-id', techId)
-  data.append('machine-id', machineId)
-  console.log('in upload file')
+  data.append('technician-id', techId);
+  data.append('machine-id', machId);
+  console.log('in upload file');
   fetch(`${apiUrl}/upload`, {
     method: 'POST',
-    body: data
-  })
-    .then((res) => res.json())
-    .then((data) => {
-      console.log(data)
-    });
+    body: data,
+  }).then(() => {
+    setFile(() => {});
+    getFiles(techId, setFiles);
+  });
 };

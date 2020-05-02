@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import { Flex, Box, Button, Heading } from 'rebass';
+import React, { useState } from 'react';
+import { Flex, Box, Button } from 'rebass';
 import { Label, Input } from '@rebass/forms';
 import { uploadFile } from '../fetchService';
 
-const UploadFile = () => {
+const UploadFile = ({ techId, machId, setFiles }) => {
   const [file, setFile] = useState();
 
   const onChangeHandler = (event) => {
@@ -11,15 +11,11 @@ const UploadFile = () => {
   };
 
   const submitFile = () => {
-    uploadFile(file, '001', 'M001');
-    console.log(file);
+    uploadFile(file, techId, machId, setFile, setFiles);
   };
 
   return (
     <Box mt={4} mx={['1', '4']}>
-      <Heading fontSize={'5'} my={3}>
-        Upload File
-      </Heading>
       <Label>Select file to upload:</Label>
       <Flex flexDirection="row" alignItems="center" flexWrap="wrap">
         <Input
@@ -29,8 +25,15 @@ const UploadFile = () => {
           my={2}
           name="file"
           onChange={onChangeHandler}
+          disabled={!techId || !machId}
         />
-        <Button bg="blue" width={'150px'} m={1} onClick={submitFile}>
+        <Button
+          disabled={!techId || !machId || !file}
+          bg={!techId || !machId || !file ? 'grey' : 'blue'}
+          width={'150px'}
+          m={1}
+          onClick={submitFile}
+        >
           Upload File
         </Button>
       </Flex>
